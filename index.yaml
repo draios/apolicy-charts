@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  apolicy:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-07-27T17:23:27.5113816+03:00"
+    description: Apolicy Agents
+    digest: 3ee1a55949154c8511d4bad7585079cec3ae6f4b8abf4a2743ed8739322b8dc3
+    name: apolicy
+    type: application
+    urls:
+    - apolicy-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-07-27T17:23:27.5043852+03:00"
