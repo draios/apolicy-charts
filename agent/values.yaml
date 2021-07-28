@@ -1,0 +1,36 @@
+secretName: "apolicy-cluster-secret"
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Collector agent
+collector:
+  enabled: true
+  name: "collector"
+  image: "apolicyio/collector"
+  serviceAccountName: "collector-sa"
+  replicaCount: 1
+  labels: {}
+  securityContext: {}
+  resources: {}
+  
+# Manager agent
+manager:
+  enabled: true
+  name: "manager"
+  image: "apolicyio/manager"
+  serviceAccountName: "manager-sa"
+  replicaCount: 1
+  labels: {}
+  securityContext: {}
+  resources: {}
+  
+ # Node-Analyzer agent
+analyzer:
+  enabled: true
+  name: "node-analyzer"
+  image: "apolicyio/node-analyzer"
+  serviceAccountName: "analyzer-sa"
+  labels: {}
+  securityContext: {}
+  resources: {}

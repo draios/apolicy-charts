@@ -1,0 +1,30 @@
+{{- if .Values.manager.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "apolicy.manager.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels: {{- include "apolicy.manager.labels" . | nindent 4 }}
+    app.kubernetes.io/component: manager 
+spec:
+  replicas: {{ .Values.manager.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: manager
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: manager
+    spec:
+      serviceAccountName: {{ .Values.manager.serviceAccountName }}
+      containers:
+        - name: manager
+          securityContext:
+            {{- toYaml .Values.manager.securityContext | nindent 12 }}
+          image: {{ .Values.manager.image }}
+          resources:
+            {{- toYaml .Values.manager.resources | nindent 12 }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.secretName }}
+{{- end }}

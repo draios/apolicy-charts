@@ -1,0 +1,45 @@
+{{- if .Values.collector.enabled }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: croleb-apolicy-krm
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: apolicy-reader
+subjects:
+  - kind: ServiceAccount
+    name: {{ .Values.collector.serviceAccountName }}
+    namespace: {{ .Release.Namespace }}
+{{- end }}
+---
+{{- if .Values.manager.enabled }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: apolicy-manager-admin-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: apolicy-manager-admin-role
+subjects:
+- kind: ServiceAccount
+  name: {{ .Values.manager.serviceAccountName }}
+  namespace: {{ .Release.Namespace }}
+{{- end }}
+---
+{{- if .Values.analyzer.enabled }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: analyzer-reader-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: analyzer-reader
+subjects:
+- kind: ServiceAccount
+  name: {{ .Values.analyzer.serviceAccountName }}
+  namespace: {{ .Release.Namespace }}
+{{- end }}
