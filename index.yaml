@@ -3,12 +3,12 @@ entries:
   agent:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-07-28T10:05:58.6006475+03:00"
+    created: "2021-08-02T11:42:03.8181642+03:00"
     description: Apolicy Agent
-    digest: f2a9cd594de1313155dcd5597739a24b1f53aed11c13270408a5525f51cd66aa
+    digest: f1f78833389694b5b1d44d4df8a55f20c59b966c5b42aa81c20f4c586f404bb6
     name: agent
     type: application
     urls:
     - agent-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-28T10:05:58.5996451+03:00"
+generated: "2021-08-02T11:42:03.8151667+03:00"
