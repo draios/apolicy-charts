@@ -12,5 +12,5 @@ helm repo update
 To install:
 
 ```bash
-helm install RELEASE-NAME apolicy/agent
+helm install RELEASE-NAME apolicy/agent --set secret="$(apolicy add cluster CLUSTER --output-secret --user USER --password PASSWORD)"
 ```
