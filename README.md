@@ -5,7 +5,7 @@
 Before installing Apolicy helm charts, you need to add the [Apolicy helm repository](https://github.com/draios/apolicy-charts) to your helm client.
 
 ```bash
-helm repo add apolicy https:/github.com/draios/apolicy-charts
+helm repo add apolicy https://github.com/draios/apolicy-charts
 helm repo update
 ```
 
